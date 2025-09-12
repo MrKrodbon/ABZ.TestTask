@@ -1,0 +1,15 @@
+@use "@/styles/mixins.scss" as mixins;
+@import "@/styles/variables.css";
+
+.button {
+  @include mixins.base-button;
+  justify-content: center;
+}
+
+.primary {
+  @include mixins.primary-button;
+}
+
+.secondary {
+  @include mixins.secondary-button;
+}

@@ -1,0 +1,10 @@
+@use "@/styles/mixins" as mixins;
+
+.title {
+  @include mixins.title;
+  color: var(--black-color);
+}
+
+.sectionTitle {
+  color: var(--white-color);
+}

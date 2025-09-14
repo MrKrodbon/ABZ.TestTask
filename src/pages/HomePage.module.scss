@@ -5,6 +5,14 @@
   margin: 0 auto;
 }
 
+.mainSectionContainer {
+  margin-top: 140px;
+}
+
+.formSectionContainer {
+  margin-bottom: 100px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     min-width: 768px;
@@ -17,5 +25,11 @@
     padding: 0 60px;
 
     width: 1170px;
+  }
+}
+
+@media screen and (min-width: 1170px) {
+  .formSectionContainer {
+    margin-bottom: 200px;
   }
 }

@@ -42,15 +42,13 @@ module.exports = {
           "sass-loader",
         ],
       },
-      // глобальні SCSS
       {
         test: /\.s[ac]ss$/,
         exclude: /\.module\.s[ac]ss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
-      // прості CSS
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       // картинки і шрифти

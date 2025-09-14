@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "@assets/images/background-image.jpeg";
 import s from "./HeroSection.module.scss";
 import Button from "../Button/Button";
+import Title from "../Title/Title";
 
 const HeroSection = () => {
   return (
@@ -11,9 +12,11 @@ const HeroSection = () => {
       </div>
       <div className={s.overlay}>
         <div className={s.contentContainer}>
-          <div className={s.title}>
-            <p>Test assignment for front-end developer</p>
-          </div>
+          <Title
+            title={"Test assignment for front-end developer"}
+            isSectionTitle
+          />
+
           <div className={s.content}>
             <p>
               What defines a good front-end developer is one that has skilled

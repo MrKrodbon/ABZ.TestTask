@@ -9,7 +9,6 @@
   height: 100%;
   max-height: 500px;
   width: 100%;
-  max-width: 360px;
   z-index: 0;
 }
 
@@ -52,10 +51,6 @@
   max-width: 328px;
   max-height: 389px;
 
-  .title {
-    @include mixins.title;
-  }
-
   .content {
     @include mixins.base-text-styles;
   }
@@ -79,12 +74,12 @@
 
 @media screen and (min-width: 1024px) {
   .overlay {
-    width: 1024px;
+    width: 1170px;
   }
 
   .heroImage {
     img {
-      width: 1024px;
+      width: 1170px;
     }
   }
 }

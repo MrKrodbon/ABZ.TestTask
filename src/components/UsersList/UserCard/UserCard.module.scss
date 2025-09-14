@@ -1,0 +1,46 @@
+@use "@/styles/mixins" as mixins;
+
+/*User section*/
+.userCard {
+  @include mixins.base-text-styles;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 254px;
+
+  background: var(--white-color);
+  border-radius: 10px;
+
+  color: var(--black-color);
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  row-gap: 20px;
+  width: 288px;
+  height: 214px;
+}
+
+.photoContainer {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media screen and (min-width: 1024px) {
+  .content {
+    width: 242px;
+  }
+}

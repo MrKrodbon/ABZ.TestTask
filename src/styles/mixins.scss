@@ -4,7 +4,6 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
-  color: white;
   margin: 0;
 }
 
@@ -16,9 +15,9 @@
 
 @mixin base-button {
   @include base-text-styles;
-  width: 120px;
-  height: 34px;
-  padding: 4px 18px 4px 19px;
+  width: fit-content;
+  height: 100%;
+  padding: 4px 23px 4px 24px;
 
   border-radius: 80px;
   border: none;
@@ -26,7 +25,13 @@
   display: flex;
   align-items: center;
   text-align: center;
-  color: rgba(0, 0, 0, 0.87);
+  color: var(--black-color);
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--hover-color);
+  }
 }
 
 @mixin primary-button {
@@ -37,4 +42,15 @@
 @mixin secondary-button {
   @include base-button;
   background: var(--secondary-color);
+}
+
+@mixin upload-button {
+  width: 83px;
+  height: 54px;
+  border: 1px solid var(--black-color);
+  background-color: transparent;
+
+  color: var(--black-color);
+
+  border-radius: 4px 0px 0px 4px;
 }

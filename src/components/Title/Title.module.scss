@@ -8,3 +8,7 @@
 .sectionTitle {
   color: var(--white-color);
 }
+
+.paragraphTitle {
+  @include mixins.base-text-styles;
+}

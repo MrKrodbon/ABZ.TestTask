@@ -13,3 +13,7 @@
 .secondary {
   @include mixins.secondary-button;
 }
+
+.upload {
+  @include mixins.upload-button;
+}

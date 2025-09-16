@@ -5,10 +5,16 @@ import clsx from "clsx";
 interface TitleProps {
   title: string;
   isSectionTitle?: boolean;
+  isParagraphTitle?: boolean;
 }
-const Title = ({ title, isSectionTitle }: TitleProps) => {
+const Title = ({ title, isSectionTitle, isParagraphTitle }: TitleProps) => {
   return (
-    <p className={clsx(s.title, { [s.sectionTitle]: isSectionTitle })}>
+    <p
+      className={clsx(s.title, {
+        [s.sectionTitle]: isSectionTitle,
+        [s.paragraphTitle]: isParagraphTitle,
+      })}
+    >
       {title}
     </p>
   );

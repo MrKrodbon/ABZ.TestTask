@@ -1,0 +1,40 @@
+@use "@/styles/mixins.scss" as mixins;
+
+.textAreaWrapper {
+  position: relative;
+  width: 245px;
+  height: 54px;
+}
+
+.textAreaWrapper textarea {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  resize: none;
+  @include mixins.base-text-styles;
+}
+
+.textAreaWrapper::before {
+  content: attr(data-placeholder);
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--gray-color);
+  @include mixins.base-text-styles;
+}
+
+.textarea {
+  text-align: center; /* горизонтальне вирівнювання */
+  display: flex;
+  align-items: center; /* для вертикального центрування */
+  justify-content: center;
+}
+
+.textarea::placeholder {
+  @include mixins.base-text-styles;
+  color: var(--gray-color);
+  padding: 14px auto 14px 16px;
+  text-align: center;
+}

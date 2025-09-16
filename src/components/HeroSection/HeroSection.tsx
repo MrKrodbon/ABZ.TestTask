@@ -26,7 +26,11 @@ const HeroSection = () => {
               the world of Front-End Development keeps evolving.
             </p>
           </div>
-          <Button label="Sign up" variant="primary" />
+          <Button
+            label="Sign up"
+            variant="primary"
+            className={s.signUpButton}
+          />
         </div>
       </div>
     </section>

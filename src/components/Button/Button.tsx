@@ -3,7 +3,7 @@ import clsx from "clsx";
 import s from "./Button.module.scss";
 
 type ButtonType = "submit" | "button" | "reset";
-type Variant = "primary" | "secondary";
+type Variant = "primary" | "secondary" | "upload";
 
 interface ButtonProps {
   type?: ButtonType;
@@ -33,6 +33,7 @@ const Button = (props: ButtonProps) => {
       className={clsx(s.button, className, {
         [s.primary]: variant === "primary",
         [s.secondary]: variant === "secondary",
+        [s.upload]: variant === "upload",
       })}
       onClick={onClick}
       disabled={disabled}

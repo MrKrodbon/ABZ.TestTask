@@ -2,14 +2,7 @@ import { User, UserResponse } from "@/types/types";
 import { apiInstance } from "./api";
 import { AxiosResponse } from "axios";
 import PhotoPlaceholder from "@/assets/icons/photo-cover.svg";
-
-export const getAllUsers = async (): Promise<AxiosResponse<UserResponse>> => {
-  const data = await apiInstance.get(`/users`, {
-    params: { page: 2, count: 10 },
-  });
-
-  return data;
-};
+import { count } from "console";
 
 apiInstance.interceptors.response.use((response) => {
   if (response.data?.users) {
@@ -22,3 +15,13 @@ apiInstance.interceptors.response.use((response) => {
   }
   return response;
 });
+
+export const getUsers = async (
+  page?: number
+): Promise<AxiosResponse<UserResponse>> => {
+  const data = await apiInstance.get(`/users`, {
+    params: { page: page ?? 1, count: 6 },
+  });
+
+  return data;
+};

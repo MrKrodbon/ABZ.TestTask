@@ -1,32 +1,35 @@
 import { User } from "@/types/types";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import UsersList from "../UsersList/UsersList";
 import s from "./MainSection.module.scss";
-import { getAllUsers } from "@/services/fetch";
+import { getUsers } from "@/services/fetch";
 import Button from "../Button/Button";
 import Title from "../Title/Title";
+import useGetUsers from "@/hooks/useGetUsers";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const MainSection = () => {
-  const [users, setUsers] = useState<User[]>();
+  const [currentPage, setCurrentPage] = useState(1);
+  const { users, totalPages, isLoading } = useGetUsers(currentPage);
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const response = await getAllUsers();
-      if (response && response.data) {
-        const updatedUsers = response.data.users;
-        setUsers(updatedUsers);
-      }
-    };
-    fetchUsers();
-  }, []);
-
-  console.log(users);
+  const handleShowMoreClick = () => {
+    if (currentPage <= totalPages) {
+      setCurrentPage((prev) => prev + 1);
+      getUsers(currentPage);
+    }
+  };
 
   return (
     <div className={s.mainSection}>
       <Title title={"Working with GET request"} />
-      {users && <UsersList users={users} />}
-      <Button label="Show more" variant="primary" />
+      {isLoading ? <LoadingSpinner /> : users && <UsersList users={users} />}
+      {currentPage <= totalPages && (
+        <Button
+          label="Show more"
+          variant="primary"
+          onClick={handleShowMoreClick}
+        />
+      )}
     </div>
   );
 };

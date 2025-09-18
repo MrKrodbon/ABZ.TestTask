@@ -3,7 +3,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main] # або master, залежно від вашої основної гілки
+    branches: [main] # або master, залежно від вашої основної гілким
+      workflow_dispatch: 
   pull_request:
     branches: [main]
 

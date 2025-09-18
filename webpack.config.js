@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
-    publicPath: process.env.NODE_ENV === "production" ? "/ABZ.TestTask/" : "/",
+    publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
   },
   devtool: "inline-source-map",
   devServer: {

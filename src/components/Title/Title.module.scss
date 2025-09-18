@@ -1,10 +1,13 @@
+/* Title Component */
 @use "@/styles/mixins" as mixins;
 
+/* Base title */
 .title {
   @include mixins.title;
   color: var(--black-color);
 }
 
+/* Title variants */
 .sectionTitle {
   color: var(--white-color);
 }

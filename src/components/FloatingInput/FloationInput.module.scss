@@ -1,0 +1,46 @@
+/* Floating Input Component */
+@use "@/styles/mixins.scss";
+
+/* Base input field */
+.floatingInput {
+  border: 1px solid #d0cfcf;
+  border-radius: 4px;
+  width: 328px;
+  height: 54px;
+  padding-left: 16px;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: var(--gray-color);
+
+  /* Error state */
+  &.errorBorder {
+    border: 1px solid var(--error-color);
+  }
+}
+
+/* Floating label */
+.floatingLabel {
+  position: absolute;
+  left: 12px;
+  top: 16px;
+  @include mixins.base-text-styles;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  z-index: 1;
+
+  /* Label states */
+  &.errorLabel {
+    color: var(--error-color);
+  }
+
+  &.labelUp {
+    color: var(
+      --error-color
+    ); /* Note: This should probably be different from error color */
+  }
+}
+
+/* Helper text */
+.hintText {
+  /* Add hint text styles */
+}

@@ -1,45 +1,49 @@
+/* Hero Section Component */
 @use "@/styles/mixins" as mixins;
 
+/* Main hero container */
 .hero {
   position: relative;
   display: flex;
   justify-content: center;
-  text-align: center;
   align-items: center;
+  text-align: center;
+  width: 100%;
   height: 100%;
   max-height: 500px;
-  width: 100%;
   z-index: 0;
 }
 
+/* Background image */
 .heroImage {
-  height: 100%;
   width: 100%;
+  height: 100%;
+
   img {
-    height: 500px;
     width: 360px;
+    height: 500px;
     object-fit: cover;
   }
 }
 
+/* Dark overlay */
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 10;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 100%;
   width: 360px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
 }
 
+/* Content wrapper */
 .contentContainer {
   @include mixins.base-text-styles;
   display: flex;
@@ -50,18 +54,21 @@
   height: 100%;
   max-width: 328px;
   max-height: 389px;
-
-  .content {
-    @include mixins.base-text-styles;
-  }
 }
 
+.content {
+  @include mixins.base-text-styles;
+  color: var(--white-color);
+}
+
+/* Sign up button */
 .signUpButton {
   width: 100px;
   height: 34px;
   padding: 4px 19px 4px 18px;
 }
 
+/* Responsive design */
 @media screen and (min-width: 768px) {
   .overlay {
     width: 768px;
@@ -71,10 +78,9 @@
     max-width: 380px;
     max-height: 323px;
   }
-  .heroImage {
-    img {
-      width: 768px;
-    }
+
+  .heroImage img {
+    width: 768px;
   }
 }
 
@@ -83,9 +89,7 @@
     width: 1170px;
   }
 
-  .heroImage {
-    img {
-      width: 1170px;
-    }
+  .heroImage img {
+    width: 1170px;
   }
 }

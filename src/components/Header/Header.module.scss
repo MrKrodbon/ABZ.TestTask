@@ -1,18 +1,21 @@
+/* Header Component */
+
+/* Main header layout */
 .header {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 60px;
-  justify-content: space-between;
 }
 
+/* Logo */
 .logo {
-  margin-right: 0;
+  /* Logo positioning handled by flexbox */
 }
 
+/* Navigation section */
 .navigation {
   display: flex;
-  flex-direction: row;
   gap: 10px;
 }

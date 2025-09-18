@@ -1,5 +1,4 @@
-import { User } from "@/types/types";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useState } from "react";
 import UsersList from "../UsersList/UsersList";
 import s from "./MainSection.module.scss";
 import { getUsers } from "@/services/fetch";

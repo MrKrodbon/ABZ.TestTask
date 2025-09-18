@@ -1,5 +1,5 @@
-import { UserForm } from "@/types/types";
 import React from "react";
+import { UserForm } from "@/types/types";
 import { UseFormRegister } from "react-hook-form";
 import s from "./Textarea.module.scss";
 
@@ -17,7 +17,7 @@ const Textarea = ({ register, value }: TextareaProps) => {
       <textarea
         className={s.textarea}
         disabled
-        {...register("photo")}
+        {...register("photo", { required: "Photo is required" })}
         value={value && value}
       ></textarea>
     </div>

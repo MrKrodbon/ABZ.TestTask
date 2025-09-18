@@ -1,10 +1,13 @@
+/* Home Page Component */
+
+/* Main container */
 .container {
   min-width: 320px;
-
   padding: 0 20px;
   margin: 0 auto;
 }
 
+/* Section spacing */
 .mainSectionContainer {
   margin-top: 140px;
 }
@@ -13,6 +16,7 @@
   margin-bottom: 100px;
 }
 
+/* Responsive design */
 @media screen and (min-width: 768px) {
   .container {
     min-width: 768px;
@@ -22,9 +26,8 @@
 
 @media screen and (min-width: 1024px) {
   .container {
-    padding: 0 60px;
-
     width: 1170px;
+    padding: 0 60px;
   }
 }
 

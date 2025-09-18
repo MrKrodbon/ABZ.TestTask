@@ -1,4 +1,3 @@
-import { register } from "module";
 import React, { useRef, useState } from "react";
 import Button from "../Button/Button";
 import Textarea from "../Textarea/Textarea";
@@ -17,7 +16,6 @@ const UploadFile = ({ register }: UploadFileProps) => {
   const handleClick = () => {
     fileInputRef.current?.click();
   };
-  console.log(userFile);
 
   const handleFileChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
     const filesArray = e.target.files;

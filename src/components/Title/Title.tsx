@@ -6,11 +6,17 @@ interface TitleProps {
   title: string;
   isSectionTitle?: boolean;
   isParagraphTitle?: boolean;
+  className?: string;
 }
-const Title = ({ title, isSectionTitle, isParagraphTitle }: TitleProps) => {
+const Title = ({
+  title,
+  isSectionTitle,
+  isParagraphTitle,
+  className,
+}: TitleProps) => {
   return (
     <p
-      className={clsx(s.title, {
+      className={clsx(s.title, className, {
         [s.sectionTitle]: isSectionTitle,
         [s.paragraphTitle]: isParagraphTitle,
       })}

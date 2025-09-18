@@ -1,11 +1,20 @@
+/* Form Section Component */
 @use "@/styles/mixins.scss" as mixins;
 
+/* Main section layout */
 .formSection {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* Form wrapper */
+.formWrapper {
+  width: 100%;
+  height: 100%;
+}
+
+/* Input fields section */
 .inputFormContainer {
   margin-top: 50px;
   display: flex;
@@ -13,7 +22,7 @@
   gap: 50px;
 }
 
-.textInputFileds {
+.textInputFields {
   border: 1px solid #d0cfcf;
   border-radius: 4px;
   width: 328px;
@@ -21,87 +30,30 @@
   padding-left: 16px;
   padding-top: 0;
   padding-bottom: 0;
-
   color: var(--gray-color);
-}
 
-.labelText {
-  @include mixins.base-text-styles;
-}
+  /* Focus state for floating labels */
+  input:focus + label {
+    top: -8px;
+    @include mixins.base-text-styles;
+    font-size: 12px;
+  }
 
-.radioButtonContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  margin-top: 25px;
-  margin-bottom: 47px;
-  gap: 11px;
+  label {
+    transition: all 0.3s ease;
+  }
 
-  .radioButtonsList {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
+  /* Error states */
+  &.errorBorder {
+    border: 1px solid var(--error-color);
+  }
 
-    .radioContainer {
-      display: block;
-      position: relative;
-      padding-left: 35px;
-      cursor: pointer;
-      font-size: 22px;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    /* Hide the browser's default checkbox */
-    .radioContainer input {
-      position: absolute;
-      opacity: 0;
-      cursor: pointer;
-      height: 0;
-      width: 0;
-    }
-
-    /* Create a custom checkbox */
-    .checkmark {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 20px;
-      width: 20px;
-      border: 1px var(--secondary-color) solid;
-      border-radius: 50%;
-    }
-
-    .checkmark::after {
-      content: "";
-      position: absolute;
-      display: none;
-    }
-
-    /* When the radio button is checked, add a blue background */
-    .radioContainer input:checked ~ .checkmark {
-      background-color: var(--white-color);
-    }
-
-    /* Show the checkmark when checked */
-    .radioContainer input:checked ~ .checkmark:after {
-      display: block;
-    }
-
-    .radioContainer .checkmark::after {
-      top: 50%;
-      left: 50%;
-      height: 10px;
-      width: 10px;
-      transform: translate(-50%, -50%);
-      background-color: var(--secondary-color);
-      border-radius: 50%;
-    }
+  &.errorText {
+    color: var(--error-color);
   }
 }
 
+/* Hint text for inputs */
 .hintText {
   padding-top: 4px;
   padding-left: 12px;
@@ -111,6 +63,79 @@
   color: var(--gray-color);
 }
 
+/* Radio buttons section */
+.radioButtonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: 25px;
+  margin-bottom: 47px;
+  gap: 11px;
+}
+
+.radioButtonsList {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+/* Custom radio button styling */
+.radioContainer {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+
+  /* Hide default radio button */
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+}
+
+.labelText {
+  @include mixins.base-text-styles;
+}
+
+/* Custom radio button appearance */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 1px var(--secondary-color) solid;
+  border-radius: 50%;
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    height: 10px;
+    width: 10px;
+    transform: translate(-50%, -50%);
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+  }
+}
+
+/* Checked state */
+.radioContainer input:checked ~ .checkmark {
+  background-color: var(--white-color);
+
+  &::after {
+    display: block;
+  }
+}
+
+/* Upload and submit sections */
 .uploadContainer {
   display: flex;
   margin-bottom: 50px;
@@ -121,14 +146,13 @@
   justify-content: center;
 }
 
+/* Media queries */
 @media screen and (min-width: 768px) {
   .hintText {
     padding-top: 0;
   }
 
   .formWrapper {
-    width: 100%;
-    height: 100%;
     max-width: 380px;
     max-height: 567px;
   }

@@ -1,5 +1,5 @@
-import { User } from "@/types/types";
 import React from "react";
+import { User } from "@/types/types";
 import UserCard from "./UserCard/UserCard";
 import s from "./UsersList.module.scss";
 

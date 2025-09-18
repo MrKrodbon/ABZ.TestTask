@@ -1,6 +1,7 @@
+/* User Card Component */
 @use "@/styles/mixins" as mixins;
 
-/*User section*/
+/* Main card container */
 .userCard {
   @include mixins.base-text-styles;
   display: flex;
@@ -8,29 +9,28 @@
   justify-content: center;
   align-items: center;
   height: 254px;
-
   background: var(--white-color);
   border-radius: 10px;
-
   color: var(--black-color);
 }
+
+/* Card content wrapper */
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  row-gap: 20px;
   width: 288px;
   height: 214px;
+  row-gap: 20px;
 }
 
+/* User photo section */
 .photoContainer {
-  height: 70px;
   width: 70px;
+  height: 70px;
   border-radius: 50%;
   overflow: hidden;
+  flex-shrink: 0; /* Prevent photo from shrinking */
 }
 
 .photo {
@@ -39,6 +39,33 @@
   object-fit: contain;
 }
 
+/* Text truncation styles */
+.name {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 4px; /* Small gap between info lines */
+
+  p {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Responsive design */
 @media screen and (min-width: 1024px) {
   .content {
     width: 242px;

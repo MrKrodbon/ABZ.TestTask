@@ -1,5 +1,7 @@
+/* Main Section Component */
 @use "@/styles/mixins" as mixins;
 
+/* Main section layout */
 .mainSection {
   display: flex;
   flex-direction: column;

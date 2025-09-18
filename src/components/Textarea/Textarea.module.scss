@@ -1,40 +1,46 @@
+/* Textarea Component */
 @use "@/styles/mixins.scss" as mixins;
 
+/* Textarea wrapper */
 .textAreaWrapper {
   position: relative;
   width: 245px;
   height: 54px;
+
+  /* Custom placeholder using data attribute */
+  &::before {
+    content: attr(data-placeholder);
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--gray-color);
+    @include mixins.base-text-styles;
+  }
+
+  /* Textarea inside wrapper */
+  textarea {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    @include mixins.base-text-styles;
+  }
 }
 
-.textAreaWrapper textarea {
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  resize: none;
-  @include mixins.base-text-styles;
-}
-
-.textAreaWrapper::before {
-  content: attr(data-placeholder);
-  position: absolute;
-  top: 50%;
-  left: 16px;
-  transform: translateY(-50%);
-  pointer-events: none;
-  color: var(--gray-color);
-  @include mixins.base-text-styles;
-}
-
+/* Main textarea element */
 .textarea {
-  text-align: center; /* горизонтальне вирівнювання */
   display: flex;
-  align-items: center; /* для вертикального центрування */
+  align-items: center;
   justify-content: center;
-}
-
-.textarea::placeholder {
-  @include mixins.base-text-styles;
-  color: var(--gray-color);
-  padding: 14px auto 14px 16px;
   text-align: center;
+
+  /* Placeholder styling */
+  &::placeholder {
+    @include mixins.base-text-styles;
+    color: var(--gray-color);
+    padding: 14px auto 14px 16px;
+    text-align: center;
+  }
 }

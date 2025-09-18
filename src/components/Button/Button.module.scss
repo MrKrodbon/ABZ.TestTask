@@ -1,11 +1,14 @@
+/* Button Component Styles */
 @use "@/styles/mixins.scss" as mixins;
 @import "@/styles/variables.css";
 
+/* Base button */
 .button {
   @include mixins.base-button;
   justify-content: center;
 }
 
+/* Button variants */
 .primary {
   @include mixins.primary-button;
 }

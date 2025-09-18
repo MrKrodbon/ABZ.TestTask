@@ -3,12 +3,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: "development", // у проді змінюєш на "production"
+  mode: "production",
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
-    clean: true,
+    publicPath: process.env.NODE_ENV === "production" ? "/ABZ.TestTask/" : "/",
   },
   devtool: "inline-source-map",
   devServer: {
@@ -80,12 +80,4 @@ module.exports = {
       filename: "[name].[contenthash].css",
     }),
   ],
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].[contenthash].js",
-    publicPath:
-      process.env.NODE_ENV === "production"
-        ? "/your-repo-name/" // замініть на назву вашого репозиторію
-        : "/",
-  },
 };

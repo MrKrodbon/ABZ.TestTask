@@ -3,27 +3,21 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main] # або master, залежно від вашої основної гілким
-      workflow_dispatch: 
+    branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
-# Дозволяє запускати цей workflow вручну з вкладки Actions
-workflow_dispatch:
-
-# Встановлює права GITHUB_TOKEN для дозволу deployment на GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Дозволяє лише один concurrent deployment, пропускаючи запуски в черзі між запущеним і останнім в черзі
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
     steps:
@@ -42,7 +36,7 @@ jobs:
       - name: Build project
         run: npm run build
         env:
-          CI: false # Відключає трактування warnings як errors
+          CI: false
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -50,9 +44,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./dist" # або './build' якщо у вас build папка
+          path: "./dist"
 
-  # Deployment job
   deploy:
     environment:
       name: github-pages

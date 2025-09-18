@@ -80,4 +80,12 @@ module.exports = {
       filename: "[name].[contenthash].css",
     }),
   ],
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].[contenthash].js",
+    publicPath:
+      process.env.NODE_ENV === "production"
+        ? "/your-repo-name/" // замініть на назву вашого репозиторію
+        : "/",
+  },
 };
